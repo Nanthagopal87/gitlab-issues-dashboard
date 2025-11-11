@@ -5,9 +5,10 @@ import IssueBarChart from './issue-bar-chart';
 import IssuePieChart from './IssuePieChart';
 import IssueLabelStackedBarChart from './IssueLabelStackedBarChart';
 import HourlyTicketLineChart from './HourlyTicketLineChart';
-import NetworkDashboardCards from './NetworkDashboardCards';
-import GcpResourcesTreemap from './GcpResourcesTreemap';
-import GcpResourcesTreeChart from './GcpResourcesTreeChart';
+import NetworkDashboardCards from './network/NetworkDashboardCards';
+import GcpResourcesTreemap from './network/GcpResourcesTreemap';
+import GcpResourcesTreeChart from './network/GcpResourcesTreeChart';
+import IssueByUsersStackedBarChart from './IssueByUsersStackedBarChart';
 
 const Dashboard = () => {
   // --- Dummy Data (In a real app, this would come from your GitLab API) ---
@@ -26,8 +27,6 @@ const Dashboard = () => {
     { assignee: 'David B', issues: 30 },
     { assignee: 'Alice M', issues: 50 },
   ];
-
-
   // --- End Dummy Data ---
 
   return (
@@ -50,7 +49,9 @@ const Dashboard = () => {
 
       {/* Charts Section */}
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-        <IssueBarChart data={dummyBarChartData} />
+        {/* <IssueBarChart data={dummyBarChartData} /> */}
+
+        <IssueByUsersStackedBarChart />
 
          <IssuePieChart
           openCount={5}
@@ -62,27 +63,14 @@ const Dashboard = () => {
         <HourlyTicketLineChart />
 
         {/* You can add more charts here, e.g., a Pie Chart for Open vs. Closed */}
-        {/* <div style={{
-          backgroundColor: '#fff',
-          borderRadius: '8px',
-          padding: '20px',
-          margin: '10px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-          flex: 1,
-          minWidth: '300px',
-        }}>
-          <h3>Open vs. Closed Issues</h3>
-          <p>This is where another EChart (e.g., Pie Chart) would go.</p>
-        </div> */}
-
       </div>
 
-        <NetworkDashboardCards />
+        {/* <NetworkDashboardCards /> */}
 
       {/* Treemap Section */}
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
         {/* <GcpResourcesTreemap /> */}
-        <GcpResourcesTreeChart />
+        {/* <GcpResourcesTreeChart /> */}
       </div>
 
     </div>

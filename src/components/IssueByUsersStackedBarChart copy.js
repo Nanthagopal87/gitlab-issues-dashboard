@@ -2,17 +2,17 @@
 import React from 'react';
 import ReactECharts from 'echarts-for-react';
 
-const IssueLabelStackedBarChart = () => {
+const IssueByUsersStackedBarChart = () => {
   // --- Mock Data ---
   // In a real application, this data would come from your backend
   // aggregated from GitLab issues and their labels.
   const mockData = {
     labels: ['bug', 'feature', 'refactor', 'documentation', 'urgent'],
-    projects: [
-      { name: 'App-1', issuesByLabel: { bug: 10, feature: 15, refactor: 5, documentation: 3, urgent: 2 } },
-      { name: 'App-2', issuesByLabel: { bug: 8, feature: 12, refactor: 7, documentation: 5, urgent: 1 } },
-      { name: 'App-3', issuesByLabel: { bug: 12, feature: 10, refactor: 6, documentation: 2, urgent: 3 } },
-      { name: 'App-4', issuesByLabel: { bug: 5, feature: 8, refactor: 3, documentation: 7, urgent: 0 } },
+    users: [
+      { name: 'Sarah K', issuesByLabel: { bug: 10, feature: 15, refactor: 5, documentation: 3, urgent: 2 } },
+      { name: 'Mike L', issuesByLabel: { bug: 8, feature: 12, refactor: 7, documentation: 5, urgent: 1 } },
+      { name: 'Emily R', issuesByLabel: { bug: 12, feature: 10, refactor: 6, documentation: 2, urgent: 3 } },
+      { name: 'David B', issuesByLabel: { bug: 5, feature: 8, refactor: 3, documentation: 7, urgent: 0 } },
     ]
   };
 
@@ -31,7 +31,7 @@ const IssueLabelStackedBarChart = () => {
       emphasis: {
         focus: 'series'
       },
-      data: mockData.projects.map(project => project.issuesByLabel[label] || 0)
+      data: mockData.users.map(user => user.issuesByLabel[label] || 0)
     };
   });
 
@@ -72,10 +72,10 @@ const IssueLabelStackedBarChart = () => {
       flex: 2, // Take up more space if needed
       minWidth: '500px',
     }}>
-      <h3 style={{ marginTop: '0' }}>GitLab Issues By App (Stacked)</h3>
+      <h3 style={{ marginTop: '0' }}>GitLab Issues By User (Stacked)</h3>
       <ReactECharts option={options} style={{ height: '350px' }} />
     </div>
   );
 };
 
-export default IssueLabelStackedBarChart;
+export default IssueByUsersStackedBarChart;

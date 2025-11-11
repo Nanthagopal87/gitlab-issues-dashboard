@@ -1,6 +1,6 @@
 // src/components/NetworkDashboardCards.js
 import React from 'react';
-import Card from './card'; // Re-use the existing Card component
+import Card from '../card'; // Re-use the existing Card component
 
 const NetworkDashboardCards = () => {
   // --- Mock Data ---
